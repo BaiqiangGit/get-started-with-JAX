@@ -15,6 +15,22 @@ from jax import pmap
 from jax import lax 
 
 """
+pmap: The purpose of pmap() is to express single-program multiple-data (SPMD) programs. 
+      Applying pmap() to a function will compile the function with XLA (similarly to jit()), 
+      then execute it in parallel on XLA devices, such as multiple GPUs or multiple TPU cores. 
+      Semantically it is comparable to vmap() because both transformations map a function over array axes, 
+      but where
+      vmap() vectorizes functions by pushing the mapped axis down into primitive operations, 
+      pmap() instead replicates the function and executes each replica on its own XLA device in parallel.
+      The mapped axis size must be less than or equal to the number of local XLA devices available
+      , as returned by jax.local_device_count()
+      https://jax.readthedocs.io/en/latest/_autosummary/jax.pmap.html
+
+vmap: Vectorizing map. Creates a function which maps fun over argument axes.
+      https://jax.readthedocs.io/en/latest/_autosummary/jax.vmap.html#jax.vmap1
+"""
+
+""""
 Lax: jax.lax is a library of primitives operations that underpins libraries such as jax.numpy. Transformation rules, such as JVP and batching rules, are typically defined as transformations on jax.lax primitives.
      Many of the primitives are thin wrappers around equivalent XLA operations, described by the XLA operation semantics documentation. In a few cases JAX diverges from XLA, usually to ensure that the set of operations is closed under the operation of JVP and transpose rules.
      Where possible, prefer to use libraries such as jax.numpy instead of using jax.lax directly. The jax.numpy API follows NumPy, and is therefore more stable and less likely to change than the jax.lax API.
