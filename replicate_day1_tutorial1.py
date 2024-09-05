@@ -273,6 +273,10 @@ print(result1)
 print(result2[0][0])
 assert np.allclose(result1, result2[0][0], atol = 1e-6)
 
+# XLA
+# https://openxla.org/xla/operation_semantics
+# XLA: https://www.tensorflow.org/xla/operation_semantics#convwithgeneralpadding_convolution
+
 
 
 
