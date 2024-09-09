@@ -520,4 +520,9 @@ for epoch in range(1, num_epochs+1):
 msg = "To add dropout/batchnorm, mind the init and train_step:"
 start_new_block(msg)
 
+#-----------------------------------
+msg = "Todo (1) Haiku (2) Flax official doc for imagenet training"
+start_new_block(msg)
+
+
 
