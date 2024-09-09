@@ -4,6 +4,7 @@
 
 """
 Tutorial 4: Flax - From Zero to Hero
+https://www.youtube.com/watch?v=5eUSmJvK8WA&t=1567s
 
 Official Flax Docs and examples:
 1. https://flax.readthedocs.io/en/latest/
@@ -175,13 +176,13 @@ def make_mse_loss(xs, ys):
         """
         Given model params, return loss on (xs, ys)
         """
-        def squred_error(x,y):
+        def squared_error(x,y):
             pred = model.apply(params, x)
             # Inner product becuase 'y' should have in general more than 1 dims
             loss = jnp.inner(y-pred, y-pred) / 2.0
             return loss
         # batched version via vmap
-        return jnp.mean(jax.vmap(squred_error)(xs, ys), axis = 0)
+        return jnp.mean(jax.vmap(squared_error)(xs, ys), axis = 0)
     
     return jax.jit(mse_loss) # jit the result
     
@@ -189,7 +190,8 @@ mse_loss = make_mse_loss(xs, ys)
 value_and_grad_fn = jax.value_and_grad(mse_loss) # this is only the function
 
 # ------------------------------------------
-msg = "Let's reuse the simple feed forward layer, since it trivially implements linear regression"
+msg = "Let's reuse the simple feed forward layer, \
+       since it trivially implements linear regression"
 start_new_block(msg)
 
 model = nn.Dense(features = y_dim) # automatic shape inference
@@ -210,8 +212,6 @@ for epoch in range(epochs):
         print(f"epoch {epoch}, loss = {loss}")
 print(f"learned params = {params}")
 print(f"gt params = {true_params}")
-
-
 
 
 
