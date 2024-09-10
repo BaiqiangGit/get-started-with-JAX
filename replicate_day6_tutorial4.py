@@ -6,9 +6,9 @@
 
 #-----------------------------------
 import os
-
-import flax.training.train_state
 os.system('clear') 
+
+from flax.training import train_state
 
 import flax.training
 import jax

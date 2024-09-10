@@ -28,6 +28,10 @@ pmap: The purpose of pmap() is to express single-program multiple-data (SPMD) pr
 
 vmap: Vectorizing map. Creates a function which maps fun over argument axes.
       https://jax.readthedocs.io/en/latest/_autosummary/jax.vmap.html#jax.vmap1
+
+
+PyTree: JAX arrays contained in nested tuples, lists, dictionaries. JAX functional conventionally store data in pytrees
+
 """
 
 """"
@@ -39,7 +43,8 @@ Lax: jax.lax is a library of primitives operations that underpins libraries such
 Flax: A neural network library and ecosystem for JAX designed for flexibility
       https://github.com/google/flax
 
-Haiku: Haiku is a library built on top of JAX designed to provide simple, composable abstractions for machine learning research.
+Haiku: (already in maintainance mode, ignore this) 
+       Haiku is a library built on top of JAX designed to provide simple, composable abstractions for machine learning research.
        https://dm-haiku.readthedocs.io/en/latest/
 """
 #----------------------------------
